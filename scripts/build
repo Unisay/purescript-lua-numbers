@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo "Building..."
+
+spago build -u '-g corefn'
+
+pslua --foreign-path . --ps-output output --entry Data.Number --lua-output-file dist/Data.Number.lua 
+pslua --foreign-path . --ps-output output --entry Data.Number.Format --lua-output-file dist/Data.Number.Format.lua 
+pslua --foreign-path . --ps-output output --entry Data.Number.Approximate --lua-output-file dist/Data.Number.Approximate.lua 
