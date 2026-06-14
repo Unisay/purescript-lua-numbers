@@ -60,20 +60,27 @@ infix 1 eqAbsolute' as =~=
 numbersTestCode :: Effect Unit
 numbersTestCode = do
 
-
   log "Data.Number.fromString"
   log "\tvalid number string"
-  assertTrue' "integer strings are coerced" $
-    fromMaybe false $ map (_ == 123.0) $ fromString "123"
+  assertTrue' "integer strings are coerced"
+    $ fromMaybe false
+    $ map (_ == 123.0)
+    $ fromString "123"
 
-  assertTrue' "decimals are coerced" $
-    fromMaybe false $ map (_ == 12.34) $ fromString "12.34"
+  assertTrue' "decimals are coerced"
+    $ fromMaybe false
+    $ map (_ == 12.34)
+    $ fromString "12.34"
 
-  assertTrue' "exponents are coerced" $
-    fromMaybe false $ map (_ == 1e4) $ fromString "1e4"
+  assertTrue' "exponents are coerced"
+    $ fromMaybe false
+    $ map (_ == 1e4)
+    $ fromString "1e4"
 
-  assertTrue' "decimals exponents are coerced" $
-    fromMaybe false $ map (_ == 1.2e4) $ fromString "1.2e4"
+  assertTrue' "decimals exponents are coerced"
+    $ fromMaybe false
+    $ map (_ == 1.2e4)
+    $ fromString "1.2e4"
 
   log "\tinvalid number string"
   assertTrue' "invalid strings are not coerced" $
@@ -215,7 +222,7 @@ numbersTestCode = do
   assertFalse' "should return false for differences larger than 10%" $
     0.000000000001 ~= 0.00000000000111
 
-      -- assertFalse
+  -- assertFalse
   assertFalse' "should return false for differences larger than 10%" $
     0.000000000001 ~= 0.0000000000009
 
@@ -259,7 +266,6 @@ numbersTestCode = do
   assertTrue' "should work for 'fractions' larger than one" $
     eqRelative (Fraction 3.0) 10.0 29.5
 
-
   log "Data.Number.Approximate.eqApproximate"
   log "\t0.1 + 0.2 ≅ 0.3"
   assertTrue' "0.1 + 0.2 should be approximately equal to 0.3" $
@@ -267,7 +273,6 @@ numbersTestCode = do
 
   assertTrue' "0.1 + 0.200001 should not be approximately equal to 0.3" $
     0.1 + 0.200001 ≇ 0.3
-
 
   log "Data.Number.Approximate.eqAbsolute"
   log "\teqAbsolute"
