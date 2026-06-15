@@ -18,7 +18,8 @@ module Data.Number
   , max
   , min
   , pow
-  , remainder, (%)
+  , remainder
+  , (%)
   , round
   , sign
   , sin
@@ -112,7 +113,9 @@ foreign import isFinite :: Number -> Boolean
 fromString :: String -> Maybe Number
 fromString str = runFn4 fromStringImpl str isFinite Just Nothing
 
-foreign import fromStringImpl :: Fn4 String (Number -> Boolean) (forall a. a -> Maybe a) (forall a. Maybe a) (Maybe Number)
+foreign import fromStringImpl
+  :: Fn4 String (Number -> Boolean) (forall a. a -> Maybe a) (forall a. Maybe a)
+       (Maybe Number)
 
 -- | Returns the absolute value of the argument.
 -- | ```purs
