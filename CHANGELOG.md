@@ -1,6 +1,40 @@
 # Changelog
 
-Notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Notable changes to this Lua fork of `purescript-numbers` are recorded here. The fork
+tracks its own release line (Lua 5.1 FFI on the [pslua](https://github.com/purescript-lua/purescript-lua)
+compiler); the upstream PureScript history is preserved below. The format
+is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
+fork entries are assembled from fragments in `changelog.d/` with
+[scriv](https://scriv.readthedocs.io/) on each release.
+
+<!-- scriv-insert-here -->
+
+## v9.1.3 - 2026-06-15
+
+### Fixed
+
+- `Data.Number` and `Data.Number.Format` follow the JS contract: `toPrecision`,
+  `fromString`, `sign`, `max`, `min`, `toExponential`, and `toString` (#92-#98).
+
+## v9.1.2 - 2026-06-15
+
+### Fixed
+
+- `toFixedNative` formats with `%f`, not `%d`, so floats are no longer
+  truncated.
+
+## v9.1.1 - 2026-06-14
+
+### Fixed
+
+- `Data.Number.Format` FFI uses its bound argument `n`.
+
+<!-- scriv-end-here -->
+
+---
+
+The sections below are inherited from the upstream PureScript project and
+predate the Lua fork.
 
 ## [Unreleased]
 
